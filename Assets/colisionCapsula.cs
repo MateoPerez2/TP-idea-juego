@@ -6,7 +6,8 @@ public class colisionCapsula : MonoBehaviour
 {
     public float movementSpeed;
     public float rotationSpeed;
-
+    public GameObject barrera;
+    public float velocidadBarrera;
 
     // Start is called before the first frame update
     void Start()
@@ -37,15 +38,19 @@ public class colisionCapsula : MonoBehaviour
             //transform.position += new Vector3(0,0,0.1f);
             transform.Translate(movementSpeed, 0, 0);
         }
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             //transform.position += new Vector3(0,0,0.1f);
             transform.Rotate(0, rotationSpeed, 0);
         }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             //transform.position += new Vector3(0,0,0.1f);
             transform.Rotate(0, -rotationSpeed, 0);
+        }
+        if(gameObject.transform.position != new Vector3 (6,1,0))
+        {
+            barrera.transform.Translate(0 ,-velocidadBarrera , 0);
         }
     }
 
