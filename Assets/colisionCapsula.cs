@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class colisionCapsula : MonoBehaviour
 {
-    float movementPlayer = 2;
-    float zmovement;
+    public float movementSpeed;
    //public float movementSpeed;
     public float rotationSpeed;
     public GameObject barrera;
@@ -14,6 +13,8 @@ public class colisionCapsula : MonoBehaviour
     Rigidbody rb;
     public float force;
     bool hasJump = true;
+    public Text levelsFinish;
+    int level = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -34,19 +35,15 @@ public class colisionCapsula : MonoBehaviour
             //transform.position += new Vector3(0,0,0.1f);
             transform.Translate(0, 0, -movementspeed);
         }*/
-        zmovement += 0.2f;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             //transform.position += new Vector3(0,0,0.1f);
-            gameObject.transform.position = new Vector3(zmovement, 0.7106248f, -movementPlayer);
-            movementPlayer--;
-            
+            transform.Translate(-movementSpeed, 0, 0);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             //transform.position += new Vector3(0,0,0.1f);
-            gameObject.transform.position = new Vector3(zmovement, 0.7106248f, movementPlayer);
-            movementPlayer++;
+            transform.Translate(movementSpeed, 0, 0);
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -74,12 +71,21 @@ public class colisionCapsula : MonoBehaviour
     {
         if (col.gameObject.name == "Deathwall")
         {
-            transform.position = new Vector3(6, 1, 0);
-            barrera.transform.position = new Vector3(26, 5, -1.19f);
+            transform.position = new Vector3(18,1, 0);
+            barrera.transform.position = new Vector3(35, 5, -1.19f);
+            level--;
         }
         if (col.gameObject.tag == "ground")
         {
             hasJump = true;
+        }
+        if (col.gameObject.tag == "finish")
+        {
+            level++;
+            transform.position = new Vector3(18, 1, 0);
+            barrera.transform.position = new Vector3(35, 5, -1.19f);
+            velocidadBarreraPersonaje += 0.1f;
+            levelsFinish.text = "Finished level " +level;
         }
     }
 }
