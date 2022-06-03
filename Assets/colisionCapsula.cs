@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class colisionCapsula : MonoBehaviour
 {
-    public float movementSpeed;
+    float movementPlayer = 2;
+    float zmovement;
+   //public float movementSpeed;
     public float rotationSpeed;
     public GameObject barrera;
     public float velocidadBarreraPersonaje;
@@ -30,24 +32,28 @@ public class colisionCapsula : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             //transform.position += new Vector3(0,0,0.1f);
-            transform.Translate(0, 0, -movementSpeed);
+            transform.Translate(0, 0, -movementspeed);
         }*/
-        if (Input.GetKey(KeyCode.A))
+        zmovement += 0.2f;
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             //transform.position += new Vector3(0,0,0.1f);
-            transform.Translate(-movementSpeed, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            //transform.position += new Vector3(0,0,0.1f);
-            transform.Translate(movementSpeed, 0, 0);
+            gameObject.transform.position = new Vector3(zmovement, 0.7106248f, -movementPlayer);
+            movementPlayer--;
+            
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             //transform.position += new Vector3(0,0,0.1f);
+            gameObject.transform.position = new Vector3(zmovement, 0.7106248f, movementPlayer);
+            movementPlayer++;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            //transform.position += new Vector3(0,0,0.1f);
             transform.Rotate(0, rotationSpeed, 0);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             //transform.position += new Vector3(0,0,0.1f);
             transform.Rotate(0, -rotationSpeed, 0);
