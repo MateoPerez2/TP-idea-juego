@@ -65,6 +65,14 @@ public class colisionCapsula : MonoBehaviour
             rb.AddForce(Vector3.up * force, ForceMode.Impulse);
             hasJump = false;
         }
+        for (int i = 0; i < 5; i++)
+        {
+
+        }
+        for (int i = 5; i >= 5; i--)
+        {
+
+        }
     }
 
     void OnCollisionEnter(Collision col)
@@ -73,7 +81,6 @@ public class colisionCapsula : MonoBehaviour
         {
             transform.position = new Vector3(18,1, 0);
             barrera.transform.position = new Vector3(35, 5, -1.19f);
-            level--;
         }
         if (col.gameObject.tag == "ground")
         {
@@ -84,8 +91,20 @@ public class colisionCapsula : MonoBehaviour
             level++;
             transform.position = new Vector3(18, 1, 0);
             barrera.transform.position = new Vector3(35, 5, -1.19f);
-            velocidadBarreraPersonaje += 0.1f;
-            levelsFinish.text = "Finished level " +level;
+            if(velocidadBarreraPersonaje > 0.3f)
+            {
+                velocidadBarreraPersonaje += 0.05f;
+            }
+            else
+            {
+                velocidadBarreraPersonaje += 0.1f;
+            }
+            
+            levelsFinish.text = "Level " + level;
+            if (col.gameObject.name == "Deathwall")
+            {
+                level = 1;
+            }
         }
     }
 }
