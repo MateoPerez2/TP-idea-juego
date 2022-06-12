@@ -24,7 +24,7 @@ public class instantite : MonoBehaviour
             clone = Instantiate(prefab1);
             clone.transform.position = new Vector3(posX, posY, posZ);
             posZ++;
-            Destroy(clone, 1);
+            Destroy(clone, 0.5f);
             
         }
         for(int i=5; i > 0; i--)
@@ -32,7 +32,7 @@ public class instantite : MonoBehaviour
             clone = Instantiate(prefab1);
             clone.transform.position = new Vector3(posX, posY, posZ);
             posZ --;
-            Destroy(clone, 1);
+            Destroy(clone, 0.5f);
             
         }
     }

@@ -14,7 +14,7 @@ public class colisionCapsula : MonoBehaviour
     public float force;
     bool hasJump = true;
     public Text levelsFinish;
-    int level = 1;
+    float level = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -25,34 +25,20 @@ public class colisionCapsula : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKey(KeyCode.W))
-        {
-            //transform.position += new Vector3(0,0,0.1f);
-            transform.Translate(0, 0, movementSpeed);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            //transform.position += new Vector3(0,0,0.1f);
-            transform.Translate(0, 0, -movementspeed);
-        }*/
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            //transform.position += new Vector3(0,0,0.1f);
             transform.Translate(-movementSpeed, 0, 0);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            //transform.position += new Vector3(0,0,0.1f);
             transform.Translate(movementSpeed, 0, 0);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            //transform.position += new Vector3(0,0,0.1f);
             transform.Rotate(0, rotationSpeed, 0);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            //transform.position += new Vector3(0,0,0.1f);
             transform.Rotate(0, -rotationSpeed, 0);
         }
         if(gameObject.transform.position != new Vector3 (6,1,0))
@@ -65,22 +51,14 @@ public class colisionCapsula : MonoBehaviour
             rb.AddForce(Vector3.up * force, ForceMode.Impulse);
             hasJump = false;
         }
-        for (int i = 0; i < 5; i++)
-        {
-
-        }
-        for (int i = 5; i >= 5; i--)
-        {
-
-        }
     }
 
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.name == "Deathwall")
         {
-            transform.position = new Vector3(18,1, 0);
-            barrera.transform.position = new Vector3(35, 5, -1.19f);
+            transform.position = new Vector3(23,1, 0);
+            barrera.transform.position = new Vector3(40, 5, -1.19f);
         }
         if (col.gameObject.tag == "ground")
         {
@@ -89,8 +67,8 @@ public class colisionCapsula : MonoBehaviour
         if (col.gameObject.tag == "finish")
         {
             level++;
-            transform.position = new Vector3(18, 1, 0);
-            barrera.transform.position = new Vector3(35, 5, -1.19f);
+            transform.position = new Vector3(23, 1, 0);
+            barrera.transform.position = new Vector3(40, 5, -1.19f);
             if(velocidadBarreraPersonaje > 0.3f)
             {
                 velocidadBarreraPersonaje += 0.05f;
@@ -101,10 +79,6 @@ public class colisionCapsula : MonoBehaviour
             }
             
             levelsFinish.text = "Level " + level;
-            if (col.gameObject.name == "Deathwall")
-            {
-                level = 1;
-            }
         }
     }
 }
