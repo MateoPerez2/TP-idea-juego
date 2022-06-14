@@ -15,11 +15,17 @@ public class colisionCapsula : MonoBehaviour
     bool hasJump = true;
     public Text levelsFinish;
     float level = 1;
+    public GameObject reset;
+    public GameObject img;
+    public GameObject txt;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        reset.gameObject.SetActive(false);
+        img.gameObject.SetActive(false);
+        txt.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -59,6 +65,9 @@ public class colisionCapsula : MonoBehaviour
         {
             transform.position = new Vector3(23,1, 0);
             barrera.transform.position = new Vector3(40, 5, -1.19f);
+            reset.gameObject.SetActive(true);
+            img.gameObject.SetActive(true);
+            txt.gameObject.SetActive(true);
         }
         if (col.gameObject.tag == "ground")
         {
