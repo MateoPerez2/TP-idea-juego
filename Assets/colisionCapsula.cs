@@ -23,8 +23,8 @@ public class colisionCapsula : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        reset.gameObject.SetActive(false);
-        img.gameObject.SetActive(false);
+        //reset.gameObject.SetActive(false);
+        //img.gameObject.SetActive(false);
         txt.gameObject.SetActive(false);
     }
 
