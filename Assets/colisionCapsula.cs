@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class colisionCapsula : MonoBehaviour
 {
+    public GameObject Player;
     public float movementSpeed;
    //public float movementSpeed;
     public float rotationSpeed;
@@ -61,13 +62,15 @@ public class colisionCapsula : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Deathwall")
+        if (col.gameObject.tag== "Deathwall")
         {
+            Debug.Log("Hola");
             transform.position = new Vector3(23,1, 0);
             barrera.transform.position = new Vector3(40, 5, -1.19f);
             reset.gameObject.SetActive(true);
             img.gameObject.SetActive(true);
             txt.gameObject.SetActive(true);
+            //Player.gameObject.SetActive(false);
         }
         if (col.gameObject.tag == "ground")
         {

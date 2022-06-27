@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1518804bea117e74694163d68c86d9c8
+guid: 8ec9cd7142577214b85efa0a0f1a82e5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -9,7 +9,17 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 97ed5a49bc2344f4f9e8bdf80ad67246, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lH8yTHvm (1)
+    second: {fileID: 2800000, guid: 4ec8742166a0d8f49a4facf6e17ea21a, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
