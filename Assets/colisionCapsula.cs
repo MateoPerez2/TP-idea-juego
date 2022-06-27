@@ -7,8 +7,6 @@ public class colisionCapsula : MonoBehaviour
 {
     public GameObject Player;
     public float movementSpeed;
-   //public float movementSpeed;
-    public float rotationSpeed;
     public GameObject barrera;
     public float velocidadBarreraPersonaje;
     Rigidbody rb;
@@ -40,14 +38,6 @@ public class colisionCapsula : MonoBehaviour
         {
             transform.Translate(movementSpeed, 0, 0);
         }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(0, rotationSpeed, 0);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(0, -rotationSpeed, 0);
-        }
         if(gameObject.transform.position != new Vector3 (6,1,0))
         {
             barrera.transform.Translate(0 ,-velocidadBarreraPersonaje , 0);
@@ -66,7 +56,7 @@ public class colisionCapsula : MonoBehaviour
         {
             Debug.Log("Hola");
             transform.position = new Vector3(23,1, 0);
-            barrera.transform.position = new Vector3(40, 5, -1.19f);
+            barrera.transform.position = new Vector3(45, 5, -1.19f);
             reset.gameObject.SetActive(true);
             img.gameObject.SetActive(true);
             txt.gameObject.SetActive(true);
